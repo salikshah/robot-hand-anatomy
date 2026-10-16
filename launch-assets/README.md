@@ -15,4 +15,4 @@ This directory contains the launch materials, media references, and distribution
 
 1. **Video:** Attach `robot hand _ video.mp4` to Tweet 1 / LinkedIn / Reddit posts.
 2. **Hero Screenshot:** Provided by author (or use `screenshot-hero-fist.png` from this directory showing the clenched fist from the 3/4 perspective).
-3. **Repository URL:** `https://github.com/salik/robot-hand-anatomy`
+3. **Repository URL:** `https://github.com/salikshah/robot-hand-anatomy`

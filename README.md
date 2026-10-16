@@ -88,7 +88,7 @@ This eliminates z-fighting, sorting artifacts, and GPU overhead while keeping ev
 
 ```bash
 # Clone the repository
-git clone https://github.com/salik/robot-hand-anatomy.git
+git clone https://github.com/salikshah/robot-hand-anatomy.git
 cd robot-hand-anatomy
 
 # Install lightweight dev dependencies (puppeteer-core for verification)

@@ -122,7 +122,7 @@ const stage = `<div class="iso-stage iso-turn ar-stage" tabindex="0" role="slide
 const topbar = `<header class="topbar">
   <div class="brand"><span class="brand-title">Robot Hand</span><span class="brand-sub">anatomy</span></div>
   <nav class="toplinks">
-    <a href="https://github.com/salik/robot-hand-anatomy" target="_blank" rel="noopener">Github</a>
+    <a href="https://github.com/salikshah/robot-hand-anatomy" target="_blank" rel="noopener">Github</a>
     <a href="https://x.com/salik" target="_blank" rel="noopener">@salik</a>
     <button id="themeBtn" class="iconbtn" aria-label="Toggle day and night" title="Day / night"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><g class="rays"><line x1="12" y1="2.5" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="21.5"></line><line x1="2.5" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="21.5" y2="12"></line><line x1="5.2" y1="5.2" x2="7" y2="7"></line><line x1="17" y1="17" x2="18.8" y2="18.8"></line><line x1="5.2" y1="18.8" x2="7" y2="17"></line><line x1="17" y1="7" x2="18.8" y2="5.2"></line></g></svg></button>
   </nav>

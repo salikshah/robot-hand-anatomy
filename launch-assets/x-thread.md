@@ -22,7 +22,7 @@ Built for builders & learners to inspect. Open-source: 👇
 ```
 
 *(Attach video: `robot hand _ video.mp4` + Screenshot)*  
-*(Reply with GitHub link: `https://github.com/salik/robot-hand-anatomy`)*
+*(Reply with GitHub link: `https://github.com/salikshah/robot-hand-anatomy`)*
 
 ---
 
@@ -108,7 +108,7 @@ Every part is clickable and searchable.
 
 Everything is open-source. Clone it, run `npm run figure`, and try it locally:
 
-👉 https://github.com/salik/robot-hand-anatomy
+👉 https://github.com/salikshah/robot-hand-anatomy
 ```
 
 ---

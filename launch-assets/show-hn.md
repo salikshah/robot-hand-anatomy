@@ -1,7 +1,7 @@
 # Show HN: 22-DOF Tendon-Driven Humanoid Robot Hand in Pure In-Browser SVG
 
 **Title:** Show HN: 22-DOF Tendon-Driven Robot Hand in Pure In-Browser SVG (No WebGL)  
-**URL:** https://github.com/salik/robot-hand-anatomy (or link to live deployed GitHub pages)
+**URL:** https://github.com/salikshah/robot-hand-anatomy (or link to live deployed GitHub pages)
 
 ---
 
@@ -33,7 +33,7 @@ This yields resolution-independent, razor-sharp technical figures that zoom infi
 
 ### Running it locally:
 ```bash
-git clone https://github.com/salik/robot-hand-anatomy.git
+git clone https://github.com/salikshah/robot-hand-anatomy.git
 cd robot-hand-anatomy
 npm install
 npm run figure
@@ -44,5 +44,5 @@ The repo includes a 2-minute recorded demo walk-through, dark/light mode builds,
 
 I'd love your thoughts on the separating-planes depth solver performance, tendon routing geometry, and how this could be extended for other open robotic mechanisms.
 
-- GitHub: https://github.com/salik/robot-hand-anatomy
+- GitHub: https://github.com/salikshah/robot-hand-anatomy
 - Feedback / DMs: [@salik on X](https://x.com/salik)
