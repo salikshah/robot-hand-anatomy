@@ -257,9 +257,11 @@ const themeBtn = document.getElementById("themeBtn");
 const audioBtn = document.getElementById("audioBtn");
 let voiceOn = false;
 let voice = null;
+const ICON_SUN = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><g><line x1="12" y1="2.5" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="21.5"></line><line x1="2.5" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="21.5" y2="12"></line><line x1="5.2" y1="5.2" x2="7" y2="7"></line><line x1="17" y1="17" x2="18.8" y2="18.8"></line><line x1="5.2" y1="18.8" x2="7" y2="17"></line><line x1="17" y1="7" x2="18.8" y2="5.2"></line></g></svg>';
+const ICON_MOON = '<svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"></path></svg>';
 function syncThemeBtn() {
   const light = document.body.dataset.theme === "light";
-  themeBtn.innerHTML = light ? "&#127769;" : "&#9788;";
+  themeBtn.innerHTML = light ? ICON_MOON : ICON_SUN;
   themeBtn.setAttribute("aria-pressed", String(light));
 }
 themeBtn.addEventListener("click", () => {

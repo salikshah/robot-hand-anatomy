@@ -44,7 +44,8 @@ const css = `${S.out.css}
 /* accordion — one section open at a time, so the panel fits the screen */
 .acc{border-top:1px solid var(--anatomy-faint)}
 .acc:first-child{border-top:0}
-.acc-h{display:flex;align-items:center;justify-content:space-between;width:100%;gap:8px;background:none;border:0;color:var(--anatomy-muted);font-family:var(--anatomy-mono);font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:9px 0;cursor:pointer;text-align:left}
+.acc-h{display:flex;align-items:center;justify-content:space-between;width:100%;gap:8px;background:none;border:0;color:var(--anatomy-muted);font-family:var(--anatomy-mono);font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:9px 0;cursor:pointer;text-align:left;flex:none}
+.acc-b{overflow-y:auto;overscroll-behavior:contain;min-height:0}
 .acc-h .chev{transition:transform .18s}
 .acc-b{display:none;padding:1px 0 13px}
 .acc.open .acc-b{display:block}
@@ -116,7 +117,7 @@ const topbar = `<header class="topbar">
   <nav class="toplinks">
     <a href="https://github.com/salik/robot-hand-anatomy" target="_blank" rel="noopener">Github</a>
     <a href="https://x.com/salik" target="_blank" rel="noopener">@salik</a>
-    <button id="themeBtn" class="iconbtn" aria-label="Toggle day and night" title="Day / night">&#9788;</button>
+    <button id="themeBtn" class="iconbtn" aria-label="Toggle day and night" title="Day / night"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="4.2"></circle><g class="rays"><line x1="12" y1="2.5" x2="12" y2="5"></line><line x1="12" y1="19" x2="12" y2="21.5"></line><line x1="2.5" y1="12" x2="5" y2="12"></line><line x1="19" y1="12" x2="21.5" y2="12"></line><line x1="5.2" y1="5.2" x2="7" y2="7"></line><line x1="17" y1="17" x2="18.8" y2="18.8"></line><line x1="5.2" y1="18.8" x2="7" y2="17"></line><line x1="17" y1="7" x2="18.8" y2="5.2"></line></g></svg></button>
   </nav>
 </header>`;
 const panel = `<aside class="study">

@@ -28,9 +28,9 @@ export const FIGURE = {
 export const FEATURE_DEFAULTS = { fist: 0, spread: 0, thumb: 0, wristY: 0, wristP: 0 };
 
 export const FEATURE_KEYS = [
-  { key: "f", channel: "fist", name: "fist", unit: "%", values: [0, 100], ease: 0.3, verb: "closes the four fingers", pct: true },
-  { key: "s", channel: "spread", name: "spread", unit: "%", values: [0, 100], ease: 0.3, verb: "spreads the fingers", pct: true },
-  { key: "t", channel: "thumb", name: "thumb", unit: "%", values: [0, 100], ease: 0.3, verb: "opposes the thumb", pct: true },
+  { key: "f", channel: "fist", name: "fist", unit: "%", values: [0, 1], ease: 0.3, verb: "closes the four fingers", pct: true },
+  { key: "s", channel: "spread", name: "spread", unit: "%", values: [0, 1], ease: 0.3, verb: "spreads the fingers", pct: true },
+  { key: "t", channel: "thumb", name: "thumb", unit: "%", values: [0, 1], ease: 0.3, verb: "opposes the thumb", pct: true },
   { key: "y", channel: "wristY", name: "wrist yaw", unit: "°", step: 15, ease: 0.25, verb: "yaws the wrist" },
   { key: "p", channel: "wristP", name: "wrist pitch", unit: "°", step: 15, ease: 0.25, verb: "pitches the wrist" },
 ];
@@ -47,19 +47,21 @@ const FINGERS = [
 export function featureValues(s, values) {
   const out = { ...values };
   const fist = clamp01(s.fist);
-  const spread = s.spread;
+  const spread = clamp01(s.spread);
   const thumb = clamp01(s.thumb);
   const curl = fist * fist * (3 - 2 * fist);
+  const opp = thumb * thumb * (3 - 2 * thumb);
   for (const f of FINGERS) {
     out[`${f.id}.mcp`] = -78 * curl;
     out[`${f.id}.pip`] = -84 * curl;
     out[`${f.id}.dip`] = -40 * curl;
     out[`${f.id}.spread`] = f.spread * spread;
   }
-  out["t.o1"] = 30 * thumb;
-  out["t.o2"] = 42 * thumb;
-  out["t.mcp"] = -20 * thumb - 28 * curl;
-  out["t.ip"] = -24 * thumb - 34 * curl;
+  // Thumb sweeps across the palm and locks over the fingers when making a fist or opposing
+  out["t.o1"] = Math.max(-39, -34 * opp - 38 * curl);
+  out["t.o2"] = Math.max(-38, -30 * opp - 32 * curl);
+  out["t.mcp"] = Math.max(-48, -20 * opp - 42 * curl);
+  out["t.ip"] = Math.max(-58, -24 * opp - 48 * curl);
   out["wrist.yaw"] = s.wristY;
   out["wrist.pitch"] = s.wristP;
   return out;
@@ -69,7 +71,7 @@ export function featureTravel(a, b) {
   const arm = (deg) => (Math.abs(deg) * Math.PI * 96) / 180;
   return Math.max(
     arm((b.fist - a.fist) * 88),
-    arm((b.spread - a.spread) * 0.26),
+    arm((b.spread - a.spread) * 26),
     arm((b.thumb - a.thumb) * 72),
     arm(b.wristY - a.wristY),
     arm(b.wristP - a.wristP),
