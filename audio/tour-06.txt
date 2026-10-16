@@ -1,0 +1,1 @@
+The thumb is opposed on a two-axis base, sweep and tilt, then two more joints. Four degrees of freedom.

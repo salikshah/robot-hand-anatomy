@@ -1,0 +1,1 @@
+A twenty-two degree of freedom tendon-driven hand, on a forearm module holding twenty-five actuators. Four fingers, an opposed thumb, and a wrist with two axes.
