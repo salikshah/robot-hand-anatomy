@@ -42,15 +42,19 @@ const css = `${S.out.css}
 .iso-stage[data-isolate]:not([data-isolate=""]) [data-cat].iso-on{display:inline}
 .study{display:flex;flex-direction:column;min-width:0}
 /* accordion — one section open at a time, so the panel fits the screen */
-.acc{border-top:1px solid var(--anatomy-faint)}
+.acc{border-top:1px solid var(--anatomy-faint);flex:none}
 .acc:first-child{border-top:0}
 .acc-h{display:flex;align-items:center;justify-content:space-between;width:100%;gap:8px;background:none;border:0;color:var(--anatomy-muted);font-family:var(--anatomy-mono);font-size:10.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;padding:9px 0;cursor:pointer;text-align:left;flex:none}
-.acc-b{overflow-y:auto;overscroll-behavior:contain;min-height:0}
+.acc-b{display:none;padding:1px 0 13px;overflow-x:hidden}
+.acc.open{flex:1;min-height:0;display:flex;flex-direction:column;overflow:hidden}
+.acc.open .acc-b{display:flex;flex-direction:column;flex:1;min-height:0;overflow-y:auto;overflow-x:hidden;overscroll-behavior:contain;padding-right:6px}
+.acc-b::-webkit-scrollbar{width:5px}
+.acc-b::-webkit-scrollbar-track{background:transparent}
+.acc-b::-webkit-scrollbar-thumb{background:var(--anatomy-lo);border-radius:3px}
+.acc-b::-webkit-scrollbar-thumb:hover{background:var(--anatomy-mid)}
 .acc-h .chev{transition:transform .18s}
-.acc-b{display:none;padding:1px 0 13px}
-.acc.open .acc-b{display:block}
 .acc.open .chev{transform:rotate(180deg)}
-.acc-b .study-block{display:flex;flex-direction:column;gap:8px;min-width:0}
+.acc-b .study-block{display:flex;flex-direction:column;gap:8px;min-width:0;width:100%;box-sizing:border-box}
 /* top bar */
 .topbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:2px 2px 10px;flex:none}
 .brand{display:flex;align-items:baseline;gap:8px;min-width:0}
@@ -76,15 +80,15 @@ const css = `${S.out.css}
 .btn:hover{color:var(--anatomy-strong);border-color:var(--anatomy-mid)}
 .btn.primary{color:var(--anatomy-strong);border-color:var(--anatomy-mid)}
 .btn.icon{width:30px;padding:5px 0}
-.tour-row{display:flex;align-items:center;gap:6px}
+.tour-row{display:flex;align-items:center;gap:6px;width:100%;box-sizing:border-box}
 .tour-step{font-family:var(--anatomy-mono);font-size:11px;color:var(--anatomy-muted);flex:1;text-align:center}
 .tour-body{margin:0;font-size:12.5px;line-height:1.55;color:var(--anatomy-text)}
 .check{display:flex;align-items:center;gap:8px;font-size:12.5px;color:var(--anatomy-text);cursor:pointer}
 .check input{accent-color:var(--anatomy-mid)}
 .sw{width:10px;height:10px;border-radius:2px;display:inline-block}
 .sw.structure{background:#8f959b}.sw.drive{background:#c9784f}.sw.sense{background:#a893cf}
-.search{font:inherit;font-size:12px;color:var(--anatomy-strong);background:transparent;border:1px solid var(--anatomy-lo);border-radius:5px;padding:5px 8px;width:100%}
-.part-list{list-style:none;margin:0;padding:0;overflow:auto;max-height:320px;border-top:1px solid var(--anatomy-faint)}
+.search{font:inherit;font-size:12px;color:var(--anatomy-strong);background:transparent;border:1px solid var(--anatomy-lo);border-radius:5px;padding:5px 8px;width:100%;box-sizing:border-box}
+.part-list{list-style:none;margin:0;padding:0;overflow-y:auto;overflow-x:hidden;max-height:280px;border-top:1px solid var(--anatomy-faint)}
 .part-list .grp{font-family:var(--anatomy-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--anatomy-muted);padding:8px 4px 3px;display:flex;justify-content:space-between}
 .part-list .prt{font-size:12px;color:var(--anatomy-text);padding:3px 6px;cursor:pointer;border-radius:4px}
 .part-list .prt:hover{background:var(--anatomy-card);color:var(--anatomy-strong)}
@@ -92,21 +96,24 @@ const css = `${S.out.css}
 .specs dt{color:var(--anatomy-muted)}
 .specs dd{margin:0;color:var(--anatomy-strong);text-align:right}
 .range{width:100%;accent-color:var(--anatomy-mid)}
-.slider{display:grid;grid-template-columns:78px 1fr;align-items:center;gap:8px;font-size:12px;color:var(--anatomy-text)}
-.slider input{width:100%;accent-color:var(--anatomy-mid)}
+.slider{display:grid;grid-template-columns:78px minmax(0,1fr);align-items:center;gap:8px;font-size:12px;color:var(--anatomy-text);width:100%;box-sizing:border-box}
+.slider input{width:100%;min-width:0;accent-color:var(--anatomy-mid)}
 @media (max-width:900px){.study-wrap{grid-template-columns:1fr}.study{border-top:1px solid var(--anatomy-faint)}}
 /* one screen: the page becomes a fixed-height stage with a scrolling panel */
 @media (min-width:860px){
-  html,body{height:100%}
-  .iso-page{width:100%;max-width:1360px;margin:0 auto;height:100dvh;padding:10px 16px;display:flex;flex-direction:column;overflow:hidden}
-  .study-wrap{flex:1;min-height:0;grid-template-columns:minmax(0,1fr) 340px;gap:16px}
-  .iso-stage{min-height:0}
-  .study{min-height:0;overflow-y:auto;padding-right:6px}
+  html,body{height:100%;overflow:hidden}
+  .iso-page{width:100%;max-width:1360px;margin:0 auto;height:100dvh;padding:8px 16px;display:flex;flex-direction:column;overflow:hidden;box-sizing:border-box}
+  .iso-figure{margin:0;flex:1;min-height:0;display:flex;flex-direction:column}
+  .iso-plate{flex:1;min-height:0;display:flex;flex-direction:column;padding:44px 20px 34px;box-sizing:border-box;overflow:hidden}
+  .study-wrap{flex:1;min-height:0;grid-template-columns:minmax(0,1fr) 340px;gap:16px;align-items:stretch;overflow:hidden}
+  .iso-stage{min-height:0;display:flex;align-items:center;justify-content:center}
+  .study{min-height:0;flex:1;height:100%;display:flex;flex-direction:column;overflow:hidden}
+  .iso-legend{flex:none}
 }
 /* isolate a whole digit: same trick as data-isolate, but matched on the leading token */
 .iso-stage[data-finger]:not([data-finger=""]) [data-cat]{display:none}
 .iso-stage[data-finger]:not([data-finger=""]) [data-cat].iso-on{display:inline}
-.finger-row{display:flex;flex-wrap:wrap;gap:5px}
+.finger-row{display:flex;flex-wrap:wrap;gap:5px;width:100%;box-sizing:border-box}
 .finger-row .btn{font-size:11px;padding:4px 7px}
 .btn[aria-pressed="true"]{color:var(--anatomy-strong);border-color:var(--anatomy-mid);background:var(--anatomy-card)}`;
 const halo = `<ellipse cx="${W / 2}" cy="${H * 0.72}" rx="${W * 0.17}" ry="${H * 0.022}" class="iso-halo" style="filter:blur(8px)"/>`;
