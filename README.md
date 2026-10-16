@@ -9,6 +9,34 @@
 
 Built as an open interactive laboratory to explore what is possible today on your personal computer: combining real humanoid mechanical engineering with the pure SVG separating-planes rendering engine inspired by [wheresryan22/anatomy](https://github.com/wheresryan22/anatomy).
 
+<p align="center">
+  <img src="Robothand%20thumb.png" alt="22-DOF Robot Hand Poster" width="400" />
+</p>
+
+<p align="center">
+  <em>22-DOF Tendon-Driven Humanoid Robot Hand · Real-Time Pure SVG Anatomy Engine</em>
+</p>
+
+---
+
+## Interactive Walkthrough & Demo Video
+
+### 📹 Full Interactive Demonstration (2m 06s)
+
+<video src="https://github.com/salikshah/robot-hand-anatomy/raw/master/robot%20hand%20_%20video.mp4" controls="controls" width="100%"></video>
+
+> 💡 *If the video above does not autoplay in your browser, **[click the screenshot below to watch or download `robot hand _ video.mp4`](robot%20hand%20_%20video.mp4)**:*
+
+[![Watch 2-Minute Interactive Demo](Screenshots/night.png)](robot%20hand%20_%20video.mp4)
+
+<p align="center">
+  <img src="Screenshots/night.png" alt="Dark Mode Interface" width="49%" />
+  <img src="Screenshots/day.png" alt="Light Mode Interface" width="49%" />
+</p>
+<p align="center">
+  <em>Left: Dark Studio Mode · Right: Classical Day Blueprint Mode</em>
+</p>
+
 ---
 
 ## Why We Built This
